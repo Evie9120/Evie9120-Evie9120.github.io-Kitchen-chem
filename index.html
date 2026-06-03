@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>🧪 Kitchen Chem</title>
+  <link rel="stylesheet" href="kitchen.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+</head>
+<body>
+<div class="app-container">
+  <div class="header">
+    <div class="title">
+      <h1>🧪 Kitchen Chem</h1>
+      <p>drag atoms | adjust quantity | merge any number of bubbles</p>
+    </div>
+    <div class="stats">
+      🧬 <span id="bubbleCount">0</span> bubbles
+      <span style="margin-left: 12px;">📖 <span id="recipeCount">0</span> recipes</span>
+    </div>
+  </div>
+
+  <div class="lab-grid">
+    <!-- Recipe Book -->
+    <div class="recipe-book">
+      <div class="recipe-header">
+        <span>📖 RECIPE BOOK</span>
+        <span style="font-size:0.7rem;">(click to spawn)</span>
+      </div>
+      <div id="recipeListContainer" class="recipe-list"></div>
+      <div class="info-message" style="margin-top: 16px;">
+        💡 Click any recipe to spawn a molecule bubble. Adjust quantity (1–100) with the number input.
+      </div>
+    </div>
+
+    <!-- Lab Bench -->
+    <div class="lab-bench">
+      <div class="bench-header">
+        <div class="bench-title">
+          <span>🔬 LAB BENCH</span>
+          <span style="font-size:0.7rem;">(drag to combine / press Merge)</span>
+        </div>
+        <div class="btn-group">
+          <button id="mergeBtn" class="btn btn-primary"><i class="ti ti-arrows-join"></i> Merge overlapping</button>
+          <button id="clearBenchBtn" class="btn btn-danger"><i class="ti ti-trash"></i> Clear</button>
+        </div>
+      </div>
+      <div id="bubbleCanvas" class="bubble-canvas"></div>
+      <div class="info-message">
+        ✨ HOW TO USE: Drag bubbles anywhere. Overlap several bubbles → press "Merge overlapping" OR drag one bubble onto another → merges ALL touching bubbles at once.<br>
+        🎚️ Click the number inside a bubble to change its quantity (0 removes it).
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Periodic Drawer (categorized) -->
+<div id="periodicDrawer" class="periodic-drawer collapsed">
+  <div class="drawer-handle" id="drawerToggle">
+    <span>⚛️</span> <span>PERIODIC TABLE (drag or click to add)</span> <span>▲▼</span>
+  </div>
+  <div class="drawer-content" id="drawerContent">
+    <div id="periodicContainer"></div>
+  </div>
+</div>
+
+<div id="statusMsg" class="status-banner hidden">✨</div>
+
+<script src="kitchen.js"></script>
+</body>
+</html>
